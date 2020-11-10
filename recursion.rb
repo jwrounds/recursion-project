@@ -27,20 +27,20 @@ end
 # 2. sort right half of array
 # merge sorted halves
 
-def merge_sort arr, result_arr = [], length
+def merge_sort arr
 
   return arr if arr.length == 1
 
   # sort left half of arr
   left_arr = arr[0..((arr.length / 2 ) - 1)]
-  left_sorted = merge_sort(left_arr, result_arr, length)
+  left_sorted = merge_sort(left_arr)
   
   # sort right half of arr
   right_arr = arr[(arr.length / 2)..-1]
-  right_sorted = merge_sort(right_arr, result_arr, length)
+  right_sorted = merge_sort(right_arr)
   
   # merge
-
+  merge_array(left_sorted, right_sorted)
 end
 
 def merge_array arr1, arr2
@@ -76,6 +76,6 @@ def merge_array arr1, arr2
   merged
 end
 
-p merge_array([3, 4, 5], [1, 2, 6])
+p merge_array([3, 4, 5,], [1, 2, 6, 8])
 
-#merge_sort([3, 1, 2, 4], 4)
+p merge_sort([3, 1, 2, 4, 6, 9, 5])
